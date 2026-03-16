@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 // We create an Axios instance so we don't have to type the base URL every time.
-// This is exactly like configuring new HttpClient { BaseAddress = new Uri("http://localhost:8000/api/") } in C#.
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api/',
+    // VITE_API_BASE_URL will be set in Vercel to point to your Render backend
+    baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/',
     headers: {
         'Content-Type': 'application/json',
     },
